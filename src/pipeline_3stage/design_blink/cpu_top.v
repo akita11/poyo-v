@@ -223,7 +223,8 @@ module poyov_blink (
         end
         
     endfunction
-
+   // comment out dmem for simple blink
+/*
     dmem #(.byte_num(2'b00)) dmem_0 (
         .clk(clk),
         .we(dmem_we[0]),
@@ -255,7 +256,7 @@ module poyov_blink (
         .wr_data(dmem_wr_data[3]),
         .rd_data(dmem_rd_data[3])
     );
-
+*/
     always @(posedge clk or negedge rst_n) begin
         if(!rst_n) begin
             wb_reg_we <= 1'b0;
