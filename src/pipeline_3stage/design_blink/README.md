@@ -16,6 +16,14 @@ poyo-vに対して、以下の修正を行ったバージョンです。
 * 10000ゲート、1.9x1.3mmくらいのレイアウトができるはず。
 * 使っていないレジスタを、regfile.vを修正して削除すれば、5000ゲートくらいにはなりそう
 
+# シミュレーション
+
+オープンソースなVerilogシミュレータIcarusVerilogでシミュレーションもできます。
+
+* iverilog -f poyov_sim.f で、a.outを作成（コンパイル）
+* vvp a.out でシミュレーションを実行。無限ループなので適当なところで止め、プロンプトで finish と入力して抜ける
+* gtkwave dump.vcd でシミュレーション結果の波形を確認。（見たい変数をウインドウんい追加する）
+
 ## Author
 
 * Junichi Akita / @akita11 / akita@ifdl.jp
