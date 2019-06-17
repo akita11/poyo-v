@@ -140,7 +140,6 @@ module poyov_blink (
                         (ex_alucode==`ALU_JALR) ? alu_op1 + decoder_imm :
                         ((ex_alucode==`ALU_BEQ) || (ex_alucode==`ALU_BNE) || (ex_alucode==`ALU_BLT) ||
                          (ex_alucode==`ALU_BGE) || (ex_alucode==`ALU_BLTU) || (ex_alucode==`ALU_BGEU)) ? ex_PC + decoder_imm: 32'd0;
-/*
     // dmem
     wire [3:0] dmem_we;
     wire [31:0] dmem_addr;
@@ -256,7 +255,7 @@ module poyov_blink (
         .wr_data(dmem_wr_data[3]),
         .rd_data(dmem_rd_data[3])
     );
-*/    
+
     always @(posedge clk or negedge rst_n) begin
         if(!rst_n) begin
             wb_reg_we <= 1'b0;

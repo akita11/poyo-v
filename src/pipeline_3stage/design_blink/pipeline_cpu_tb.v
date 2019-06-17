@@ -13,7 +13,7 @@ module pipeline_cpu_tb;
 
     always #(CYCLE/2) clk = ~clk;
 
-    poyov cpu_top(
+    poyov_blink cpu_top(
        .clk(clk),
        .rst(rst),
        .LED(LED)

@@ -14,8 +14,12 @@ module imem(
    always @(posedge clk) begin
       case (iaddr)
 	// blink program
-	16'h0000 : rd_data <= 32'h000020b7; // lui  x1,0x2
-	16'h0001 : rd_data <= 32'h70f08093; // addi x1,x1,0x70f / x1=0x270f=10000
+// loop iteration of 10000
+//	16'h0000 : rd_data <= 32'h000020b7; // lui  x1,0x2
+//	16'h0001 : rd_data <= 32'h70f08093; // addi x1,x1,0x70f / x1=0x270f=10000
+// loop iteration of 5
+	16'h0000 : rd_data <= 32'h000000b7; // lui  x1,0x0
+	16'h0001 : rd_data <= 32'h00508093; // addi x1,x1,0x005 / x1=5
         16'h0002 : rd_data <= 32'h500001b7; // lui  x3,0x50000 / GPIO base address
         16'h0003 : rd_data <= 32'h00106213; // li   x4,1 / ori x0,x4,1
 	16'h0004 : rd_data <= 32'h0041a023; // sw   x4,0(x3) ; GPIO=1
